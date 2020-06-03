@@ -1,0 +1,21 @@
+{
+    "name": "fengers/laravel-extend-schema",
+    "description": "extend schema",
+    "minimum-stability": "dev",
+    "keywords": ["laravel", "postgres"],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fengers\\Database\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fengers\\Database\\DatabaseServiceProvider"
+            ]
+        }
+    }
+}
