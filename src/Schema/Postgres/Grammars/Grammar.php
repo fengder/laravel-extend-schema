@@ -22,6 +22,26 @@ class Grammar extends PostgresGrammar
 
 
     /**
+     * Compile a gin index key command.
+     *
+     * @param  \Fengers\Database\Schema\Postgres\Blueprint  $blueprint
+     * @param  \Illuminate\Support\Fluent  $command
+     * @return string
+     */
+    public function compileGin(Blueprint $blueprint, Fluent $command)
+    {
+        $command->algorithm = 'gin';
+
+        return sprintf('create index %s on %s%s (%s)',
+            str_replace([' '], ['_'], $this->wrap($command->index)),
+            $this->wrapTable($blueprint),
+            " using {$command->algorithm}" ,
+            implode(', ', $command->columns)
+        );
+    }
+
+
+    /**
      * Compile a rum index key command.
      *
      * @param  \Fengers\Database\Schema\Postgres\Blueprint  $blueprint
