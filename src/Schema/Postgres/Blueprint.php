@@ -18,6 +18,18 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
     }
 
     /**
+     * Create a new geography column on the table.
+     *
+     * @param  string  $column
+     * @return \Illuminate\Database\Schema\ColumnDefinition
+     */
+    public function geography($column)
+    {
+        return $this->addColumn('geography', $column);
+    }
+
+
+    /**
      * Specify an index for the table.
      *
      * @param  string|array  $columns
@@ -29,42 +41,6 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
         return $this->indexCommand('gin', $columns, $name);
     }
 
-    /**
-     * Specify an index for the table.
-     *
-     * @param  string|array  $columns
-     * @param  string  $name
-     * @return \Illuminate\Support\Fluent
-     */
-    public function brin($columns, $name = null)
-    {
-        return $this->indexCommand('brin', $columns, $name);
-    }
-
-    /**
-     * Specify an index for the table.
-     *
-     * @param  string|array  $columns
-     * @param  string  $name
-     * @return \Illuminate\Support\Fluent
-     */
-    public function gist($columns, $name = null)
-    {
-        return $this->indexCommand('gist', $columns, $name);
-    }
-
-    /**
-     * Specify an index for the table.
-     *
-     * @param  string|array  $columns
-     * @param  string  $name
-     * @return \Illuminate\Support\Fluent
-     */
-    public function spGist($columns, $name = null)
-    {
-        echo 1;
-        return $this->indexCommand('spgist', $columns, $name);
-    }
 
     /**
      * Specify an index for the table.

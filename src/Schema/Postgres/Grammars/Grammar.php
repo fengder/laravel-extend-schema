@@ -20,6 +20,16 @@ class Grammar extends PostgresGrammar
         return 'tsvector';
     }
 
+    /**
+     * Create the column definition for a geography type.
+     *
+     * @param  \Illuminate\Support\Fluent  $column
+     * @return string
+     */
+    public function typeGeography(Fluent $column)
+    {
+        return 'geography';
+    }
 
     /**
      * Compile a gin index key command.
