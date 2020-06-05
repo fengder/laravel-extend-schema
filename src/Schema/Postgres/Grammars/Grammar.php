@@ -21,17 +21,6 @@ class Grammar extends PostgresGrammar
     }
 
     /**
-     * Create the column definition for a geography type.
-     *
-     * @param  \Illuminate\Support\Fluent  $column
-     * @return string
-     */
-    public function typeGeography(Fluent $column)
-    {
-        return 'geography';
-    }
-
-    /**
      * Compile a gin index key command.
      *
      * @param  \Fengers\Database\Schema\Postgres\Blueprint  $blueprint
@@ -62,7 +51,7 @@ class Grammar extends PostgresGrammar
     {
         $command->algorithm = 'rum';
 
-        return sprintf('create index %s on %s%s (%s)',
+        return sprintf('create index %s on %s%s (%s) '. (isset($command->with) ? "with ({$command->with})" : '') ,
             str_replace([' '], ['_'], $this->wrap($command->index)),
             $this->wrapTable($blueprint),
             " using {$command->algorithm}" ,
