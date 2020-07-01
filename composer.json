@@ -2,6 +2,7 @@
     "name": "fengers/laravel-extend-schema",
     "description": "extend schema",
     "minimum-stability": "dev",
+    "license": "MIT",
     "keywords": ["laravel", "postgres"],
     "require": {
         "php": ">=7.0"
