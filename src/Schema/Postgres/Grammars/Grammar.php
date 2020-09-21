@@ -21,6 +21,17 @@ class Grammar extends PostgresGrammar
     }
 
     /**
+     * Create the column definition for a integer[] type.
+     *
+     * @param  \Illuminate\Support\Fluent  $column
+     * @return string
+     */
+    public function typeIntegerArray(Fluent $column)
+    {
+        return 'integer[]';
+    }
+
+    /**
      * Compile a gin index key command.
      *
      * @param  \Fengers\Database\Schema\Postgres\Blueprint  $blueprint

@@ -18,6 +18,18 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
     }
 
     /**
+     * Create a new intArray column on the table.
+     *
+     * @param  string  $column
+     * @return \Illuminate\Database\Schema\ColumnDefinition
+     */
+    public function integerArray($column)
+    {
+        return $this->addColumn('integerArray', $column);
+    }
+
+
+    /**
      * Specify an index for the table.
      *
      * @param  string|array  $columns
